@@ -1,3 +1,20 @@
 <template>
-  <h1>${message}</h1>
+ <div class="header-1">
+  <img class="log1" src="../static/favicon.ico" >
+  <nav>
+    <ul  class="nav-links" >
+      <li repeat.for="route of router.navigation" class="${route.isActive ? 'active' : ''}">
+        <a href.bind="route.href">${route.title}</a></li>
+       
+     
+    </ul>
+  </nav>
+  <a href="" class="cta"><button class="b1">Contact</button></a>
+ </div>
+<div class="col-9">
+  <router-view></router-view>
+</div>
+<div class="col-2">
+  <compose view-model="sponsors/sponsors"></compose>
+</div>
 </template>

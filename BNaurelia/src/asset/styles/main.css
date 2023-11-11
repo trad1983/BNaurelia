@@ -1,0 +1,35 @@
+* {
+font-size: 1rem;
+font-style: bold;
+padding: 0px;
+margin: 0;
+box-sizing: border-box;
+}
+.hiddne {
+display: none;
+}
+.header-1{
+display: flex;
+justify-content: space-between;
+background: rgb(215, 202, 228);
+align-items: center;
+}
+.active a{
+color: azure;
+
+}
+.nav-links li{
+  list-style: none;
+  padding: 0 15px;
+}
+.nav-links li a {
+text-decoration: none;
+}
+button {
+  border: 1px solid black;
+
+}
+
+.nav-links{
+display: flex;
+}
