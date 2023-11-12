@@ -4,6 +4,8 @@ font-style: bold;
 padding: 0px;
 margin: 0;
 box-sizing: border-box;
+
+
 }
 .hiddne {
 display: none;
@@ -22,8 +24,11 @@ color: azure;
   list-style: none;
   padding: 0 15px;
 }
-.nav-links li a {
-text-decoration: none;
+.nav-links li  {
+  list-style: none;
+}
+.side-links li {
+  list-style: none;
 }
 button {
   border: 1px solid black;
@@ -33,3 +38,30 @@ button {
 .nav-links{
 display: flex;
 }
+
+  
+  /* body{
+  padding-left: .2em;
+  padding-right: .2em;
+  }  */
+  
+  [class*="col-"]{
+  border: 1px  solid black;
+  float: left;
+  padding: 10px;
+  
+  }
+  
+  .col-1{width:8.33% ;
+       background: aqua;}
+  .col-2{width:16.66%  ; background: rgb(203, 241, 241);}
+  .col-3{width:25% ; background: rgb(240, 246, 239);}
+  .col-4{width:33.33% ; background: rgb(187, 255, 0);}
+  .col-5{width:41.66% ; background: rgb(0, 51, 255);}
+  .col-6{width:50% ; background: rgb(10, 11, 11);}
+  .col-7{width:58.33% ; background: rgb(255, 0, 157);}
+  .col-8{width:66.66% ; background: rgb(255, 136, 0);}
+  .col-9{width:75% ; background: rgb(244, 215, 217);}
+  .col-10{width:83.33% ; background: rgb(195, 255, 0);}
+  .col-11{width:91.66% ; background: rgb(1, 41, 41);}
+  .col-12{width:100% ; background: rgb(81, 0, 255);}

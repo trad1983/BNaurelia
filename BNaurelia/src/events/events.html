@@ -1,13 +1,9 @@
 <template>
-  <h1>this is events</h1>
-  <div repeat.for="event of events">
-    <h1 css="style: margin:5px">${event.id} : ${event.title}</h1>
- 
-    <hr>
-    </div>
- 
- 
 
-  <compose modle.bind="event" view="events/event.html"></compose>
- </div>
+    <div repeat.for="event of events">
+      <compose model.bind="event" view="events/event.html"></compose>
+     
+    </div>
+    <button click.delegate="goToDisc()">GoToDesc</button>
+ 
 </template>

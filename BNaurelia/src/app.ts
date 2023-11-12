@@ -36,6 +36,7 @@ export class App {
       },
       { 
         route: 'eventDetail/:eventId',
+        name:'eventDetail',
         moduleId:PLATFORM.moduleName('events/event-detail'), 
       },
 

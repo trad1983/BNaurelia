@@ -1,14 +1,17 @@
-import { DataRepository } from "services/dataRepository";
-import {  inject} from "aurelia-framework";
+import { DataRepository } from 'services/dataRepository';
+
+import {inject} from 'aurelia-framework';
+
+
 @inject(DataRepository)
 export class EventDetail {
- 
-   dataRepository:any
+  dataRepository:any
   event: any;
-  constructor(dataRepository) {
-    this.dataRepository = dataRepository
-  }
-  activate(params, routeConfig) {
-   this.event =  this.dataRepository.getEvent(+params.eventId)
-  }
+	constructor(DataRepository) {
+		this.dataRepository = DataRepository;
+	}	
+
+	activate(params, routeConfig) {
+		this.event = this.dataRepository.getEvent(parseInt(params.eventId));
+	}
 }

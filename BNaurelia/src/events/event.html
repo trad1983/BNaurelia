@@ -1,8 +1,12 @@
 <template>
-  event
+
 <div>
- <a href.bind="event.detailUrl">
-  ${event.id} : ${event.title}
- </a>
+  <div class="bg-success rbox">
+
+		<!-- <a href="#/eventDetail/${event.id}">  //first way -->
+
+      <a href.bind='event.detailUrl'>
+      ${event.id} : ${event.title}</a>
+	</div>
 </div>
 </template>
