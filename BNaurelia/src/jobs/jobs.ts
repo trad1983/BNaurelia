@@ -1,7 +1,14 @@
 export class Jobs {
-  message: string;
+  
 
-  constructor() {
-    this.message = 'Hello world';
+
+  canActivate(params, routeConfig, navigationInstruction) {
+   const promise = new Promise((res, rej)=>{
+  setTimeout(_=> {
+  res(false)
+  }, 500)
+  })
+  return promise
+   
   }
 }

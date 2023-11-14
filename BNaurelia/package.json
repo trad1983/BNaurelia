@@ -11,12 +11,15 @@
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.4.0",
     "aurelia-router": "^1.7.1",
-    "moment": "^2.29.4"
+    "font-awesome": "^4.7.0",
+    "moment": "^2.29.4",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.35.1",
     "@types/jest": "^29.5.2",
     "@types/node": "^18.11.18",
+    "@types/toastr": "^2.1.43",
     "@types/webpack": "^5.28.1",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",

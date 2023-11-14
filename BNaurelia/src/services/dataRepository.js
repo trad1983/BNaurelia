@@ -1,32 +1,45 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-self-assign */
 import {eventsData} from 'services/eventsData';
 import moment from 'moment';
-	
+
+function filterAndFormat(pastOrFuture, events) {
+	var results = JSON.parse(JSON.stringify(events));
+	if (pastOrFuture == 'past') {
+		results = results.filter(item => moment(item.dateTime) < moment());
+	}
+	else if (pastOrFuture == 'future') {
+		results = results.filter(item => moment(item.dateTime) > moment());
+	}
+	else {
+		results = results;
+	}
+	results.forEach(item => {
+		var dateTime = moment(item.dateTime)
+			.format("MM/DD/YYYY HH:mm");
+			item.dateTime = dateTime;
+	});
+
+	return results;
+}
+
 export class DataRepository {
-
-
-  constructor(){
-  // this.events = eventsData
-  }
-	getEvents() {
+	getEvents(pastOrFuture) {
 		var promise = new Promise((resolve, reject) => {
 			if (!this.events) {
-				setTimeout(_ => {
-					this.events = eventsData;
-					eventsData.forEach(item => {
-						var dateTime = moment(item.dateTime).format("MM/DD/YYYY HH:mm");
-						item.dateTime = dateTime;
-					});
-					resolve(this.events);					
-				},2000);
+				setTimeout(() => {
+					this.events = eventsData.sort((a,b) =>
+					 a.dateTime >= b.dateTime ? 1 : -1);
+					resolve(filterAndFormat(pastOrFuture, this.events));					
+				},10);
 			}
 			else {
-				resolve(this.events);
+				resolve(filterAndFormat(pastOrFuture, this.events));
 			}
 		});
 		return promise;
 	}
-	
-	getEvent(id) {
-		return this.events.find(item => item.id == id);
+  getEvent(eventId) {
+		return this.events.find(item => item.id == eventId);
 	}
 }
