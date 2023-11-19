@@ -1,4 +1,5 @@
 <template>
+  <!-- <require from="resources/value-converters/date-format"></require> -->
   <div class="row">
 		<div >
 			<img src='${event.image}'>
@@ -6,7 +7,8 @@
 		</div>
 		<div >
 			<h3>${event.title}</h3>
-			<h5>${event.dateTime}</h5>
+			<h5>${event.dateTime | dateFormat}</h5>
+      <button click.delegate="editEvent(event)" type="button">Edit</button>
       
 		</div>
 	</div>

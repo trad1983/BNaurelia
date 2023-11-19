@@ -5,18 +5,20 @@ import toastr from 'toastr'
 import 'asset/styles/main.css'
 import 'font-awesome/css/font-awesome.min.css'
 import 'toastr/build/toastr.css'
+import moment  from 'moment';
 import {RouterConfiguration, Router} from 'aurelia-router';
 
 export class App {
   router: Router;
+  timeIs: string;
   constructor(){
-  
+  setInterval(()=> this.timeIs = moment().format('hh:mm:ss.SSS'),100)
   }
   configureRouter(config: RouterConfiguration, router: Router): void {
     this.router = router;
     config.title = 'Title';
     config.options.pushState =true
-     config.addPipelineStep('authorize', NavToastStep)
+    // config.addPipelineStep('authorize', NavToastStep)
     // config.addPipelineStep('authorize', LogNextStep)
     // config.addPipelineStep('preActivate', LogNextStep)
     // config.addPipelineStep('preRender', LogNextStep)
@@ -32,7 +34,7 @@ export class App {
       },
       { 
         route: 'jobs',
-        name: 'Jobs', 
+        name: 'jobs', 
         viewPorts:{mainContent:{ moduleId:PLATFORM.moduleName('jobs/jobs')}, 
                   sidBar: { moduleId:PLATFORM.moduleName('sidebar/sponsors')}}, 
         title:'Jobs', 
@@ -52,7 +54,12 @@ export class App {
         sidBar:{ moduleId:PLATFORM.moduleName('sidebar/ads')}},
         name:'eventDetail',
       },
-
+      { 
+        route: 'addJob',name:'addJob',
+        viewPorts:{mainContent:{ moduleId:PLATFORM.moduleName('jobs/add-job')},
+        sidBar:{ moduleId:PLATFORM.moduleName('sidebar/ads')}},
+       
+      },
 
     ]);
 
@@ -69,16 +76,15 @@ class LogNextStep {
   })
   }
 }
-class NavToastStep {
-run(navigationInstruction, next){
-return next().then(result => {
-if(result.status === 'canceled'){
-toastr.error('cancel trad')
-}
-if(result.status === "completed")
-toastr.info('compleate trad')
-return result
-})
-
-}
-}
+// class NavToastStep {
+// run(navigationInstruction, next){
+// return next().then(result => {
+// if(result.status === 'canceled'){
+// toastr.error('cancel trad')
+// }
+// if(result.status === "completed")
+// toastr.info('compleate trad')
+// return result
+// })
+// }
+// }

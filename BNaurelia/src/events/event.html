@@ -1,12 +1,18 @@
 <template>
 
-<div>
   <div class="bg-success rbox">
-
+   <table>
+    <tr>
+   <td><a href.bind="event.detailUrl"><h3 textcontent.bind="event.title"></h3></a></td>
+    </tr>
+    <tr>
+     <td><h5> ${event.dateTime  | dateFormat}</h5></td>
+    </tr>
+    <tr>
+       <td innerhtml.bind="event.description"></td>
+    </tr>
+   </table>
 		<!-- <a href="#/eventDetail/${event.id}">  //first way -->
-
-      <a href.bind='event.detailUrl'>
-     ${event.dateTime} - ${event.id} : ${event.title}</a>
 	</div>
-</div>
+   <div textcontent.two-way="event.description" contenteditable="true"></div>
 </template>

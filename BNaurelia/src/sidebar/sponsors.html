@@ -1,3 +1,19 @@
 <template>
-  sponsor
+<div textcontent.one-time="message"></div>
+<button click.trigger="doSome()">Click Me</button>
+<div repeat.for="[key, val] of mapCollection">
+  ${key} : ${val}
+</div>
+<div>
+ <input type="text" ref="input1">
+</div>
+<!-- we can use debounce -->
+<div>${input1.value & debounce :1000}</div>
+<!-- we can use throttle -->
+<!-- <div>${input1.value & throttle :1000}</div> -->
+<div>
+  <input type="text" value.bind="person.fname">
+  <input type="text" value.bind="person.lname">
+</div>
+<div>${person.fullName}</div>
 </template>

@@ -25,22 +25,22 @@
       this.originalInput = cloneObject(this.discussionInput);
     }
     
-	canDeactivate() {
-		if (JSON.stringify(cloneObject(this.discussionInput)) != 
-			JSON.stringify(this.originalInput)) {
-			if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			return true;
-		}
-	}
+	// canDeactivate() {
+	// 	if (JSON.stringify(cloneObject(this.discussionInput)) != 
+	// 		JSON.stringify(this.originalInput)) {
+	// 		if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+	// 			return true;
+	// 		}
+	// 		else {
+	// 			return false;
+	// 		}
+	// 	}
+	// 	else {
+	// 		return true;
+	// 	}
+	// }
 
-	deactivate() {
-		console.log("Discussion deactivated");
-	}
+	// deactivate() {
+	// 	console.log("Discussion deactivated");
+	// }
   }

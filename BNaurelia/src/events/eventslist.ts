@@ -4,7 +4,7 @@ import {inject} from 'aurelia-framework';
 import {DataRepository} from 'services/dataRepository';
 import {Router, activationStrategy} from 'aurelia-router';
 
-@inject(DataRepository, Router)
+ @inject(DataRepository, Router)
 export class EventsList {
   dataRepository: any;
   router: any;

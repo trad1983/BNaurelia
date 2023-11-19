@@ -1,0 +1,19 @@
+<template>
+  <div class="header-1">
+    <img class="log1" src="../../../static/favicon.ico" >
+    <nav>
+      <ul  class="nav-links" >
+        <li repeat.for="route of router.navigation" class="${route.isActive ? 'active' : ''}">
+          <a href.bind="route.href">${route.title}</a>
+         
+        
+        </li>
+      </ul>
+      <ul>
+        <li><i class="fa fa-cog fa-spin fa-3x" style="margin: 0 auto;"
+          if.bind="router.isNavigating"></i></li>
+      </ul>
+    </nav>
+    <a href="" class="cta"><button class="b1">Contact us</button></a>
+   </div>
+</template>

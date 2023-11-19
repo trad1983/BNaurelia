@@ -1,14 +1,22 @@
+
+import { inject } from "aurelia-framework";
+import {DataRepository  } from "services/dataRepository";
+@inject(DataRepository)
 export class Jobs {
-  
-
-
-  canActivate(params, routeConfig, navigationInstruction) {
-   const promise = new Promise((res, rej)=>{
-  setTimeout(_=> {
-  res(false)
-  }, 500)
+  jobs: any[];
+  router: any;
+  constructor(private dataRepository){
+ 
+  }
+activate(params, routeConfig, navigationInstruction) {
+  this.jobs = []
+  this.router = navigationInstruction.router 
+  return this.dataRepository.getJobs().then(jobs=> {
+  this.jobs = jobs
   })
-  return promise
-   
+
+}
+addJob(){
+  this.router.navigateToRoute('addJob')
   }
 }

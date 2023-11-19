@@ -1,0 +1,18 @@
+<template>
+<ai-dialog class="col-5">
+  <ai-dialog-header>
+   <h3>Edit Event</h3>
+  </ai-dialog-header>
+  <ai-dialog-body>
+    <label for="">title</label>
+    <input type="text" value.bind="event.title">
+    <label for="">Description</label>
+    <textarea type="text" value.bind="event.description">
+      </textarea>
+  </ai-dialog-body>
+  <ai-dialog-footer>
+   <button type="button" click.delegate="save()">save</button>
+   <button type="button" click.delegate="cancel()">cancel</button>
+  </ai-dialog-footer>
+</ai-dialog>
+</template>

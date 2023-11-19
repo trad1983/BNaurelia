@@ -2,7 +2,7 @@
 /* eslint-disable no-self-assign */
 import {eventsData} from 'services/eventsData';
 import moment from 'moment';
-
+import {  jobsData, states, jobTypes, jobSkills} from "services/jobsData";
 function filterAndFormat(pastOrFuture, events) {
 	var results = JSON.parse(JSON.stringify(events));
 	if (pastOrFuture == 'past') {
@@ -14,11 +14,7 @@ function filterAndFormat(pastOrFuture, events) {
 	else {
 		results = results;
 	}
-	results.forEach(item => {
-		var dateTime = moment(item.dateTime)
-			.format("MM/DD/YYYY HH:mm");
-			item.dateTime = dateTime;
-	});
+	
 
 	return results;
 }
@@ -42,4 +38,48 @@ export class DataRepository {
   getEvent(eventId) {
 		return this.events.find(item => item.id == eventId);
 	}
+  addJob(job){
+       let promise = new Promise((res, rej)=> {
+        this.jobs.push(job)
+        res(job)
+      })
+      return promise;
+  }
+ 
+  getJobs(){
+    let promise = new Promise((res, rej)=> {
+    if(!this.jobs){
+    this.jobs =jobsData
+    }
+    res(this.jobs)
+    })
+    return promise;
+    }
+  getStates(){
+  let promise = new Promise((res, rej)=> {
+  if(!this.states){
+  this.states = states
+  }
+  res(this.states)
+  })
+  return promise;
+  }
+  getJobTypes(){
+    let promise = new Promise((res, rej)=> {
+    if(!this.jobTypes){
+    this.jobTypes =jobTypes
+    }
+    res(this.jobTypes)
+    })
+    return promise;
+    }
+    getJobSkills(){
+      let promise = new Promise((res, rej)=> {
+      if(!this.jobSkills){
+      this.jobSkills =jobSkills
+      }
+      res(this.jobSkills)
+      })
+      return promise;
+      }
 }
